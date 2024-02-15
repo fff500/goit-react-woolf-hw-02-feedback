@@ -9,7 +9,7 @@ export class App extends Component {
     bad: 0
   }
 
-  handleFeedback(type) {
+  handleFeedback = (type) => {
     this.setState((state) => ({ [type]: state[type] += 1 }));
   }
 
@@ -25,7 +25,7 @@ export class App extends Component {
     return (
       <>
         <Section title="Please, give feedback">
-          <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={this.handleFeedback.bind(this)} />
+          <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={this.handleFeedback} />
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() ?
