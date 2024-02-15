@@ -3,11 +3,6 @@ import { Component } from 'react';
 import { FeedbackOptions, Notification, Section, Statistics } from 'components';
 
 export class App extends Component {
-  constructor() {
-    super();
-    this.handleFeedback = this.handleFeedback.bind(this);
-  }
-
   state = {
     good: 0,
     neutral: 0,
@@ -30,7 +25,7 @@ export class App extends Component {
     return (
       <>
         <Section title="Please, give feedback">
-          <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={this.handleFeedback} />
+          <FeedbackOptions options={['good', 'neutral', 'bad']} onLeaveFeedback={this.handleFeedback.bind(this)} />
         </Section>
         <Section title="Statistics">
           {this.countTotalFeedback() ?
